@@ -1,13 +1,13 @@
-const axios = require('axios')
+const input = require('./input.json')
 
-const API_URL =
-  'https://adventofcode.com/2020/day/1/input'
-
-;(async () => {
-  try {
-    const input = await axios.get(API_URL)
-    console.log(input.data)
-  } catch (e) {
-    console.log(e)
+function equalToNumber(number, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (+arr[i] + +arr[j] === number) {
+        return +arr[i] * +arr[j]
+      }
+    }
   }
-})()
+}
+
+console.log(equalToNumber(2020, input))
